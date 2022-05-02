@@ -12,7 +12,7 @@ You can run your application in dev mode that enables live coding using:
 
 # to disable testcontainer run with command:
  ./mvnw compile quarkus:dev -Dquarkus.devservices.enabled=false
- 
+
 ```
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
