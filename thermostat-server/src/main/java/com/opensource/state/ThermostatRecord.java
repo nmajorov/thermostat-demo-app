@@ -2,14 +2,19 @@ package com.opensource.state;
 
 import java.util.UUID;
 
+/**
+ * Define record of thermostat
+ * 
+ * @author nmajorov@redhat.com
+ * 
+ */
 public class ThermostatRecord {
-    
+
     private UUID deviceId;
-    
+
     private TemperatureState temperature;
 
     private long timeStamp;
-
 
     public ThermostatRecord(UUID deviceId, TemperatureState temperature, long timeStamp) {
         this.deviceId = deviceId;
@@ -19,7 +24,6 @@ public class ThermostatRecord {
 
     public ThermostatRecord() {
     }
-
 
     public UUID getDeviceId() {
         return this.deviceId;
@@ -44,8 +48,5 @@ public class ThermostatRecord {
     public void setTimeStamp(long timeStamp) {
         this.timeStamp = timeStamp;
     }
-
-   
-
 
 }
