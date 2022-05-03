@@ -24,7 +24,7 @@ public class ThermostatSyncResource {
      * @return ok of all goes well
      */
     public Response data(@PathParam("id") UUID id, TemperatureState state) {
-        log.info(String.format("Get state: %s for device: %d", state,id));
+        log.info(String.format("Get state: %s for device: %s", state,id));
         return Response.ok().build();
     }
 
