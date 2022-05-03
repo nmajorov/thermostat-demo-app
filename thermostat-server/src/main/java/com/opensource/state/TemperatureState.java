@@ -50,4 +50,13 @@ public class TemperatureState implements State<Double> {
 		return Double.doubleToLongBits(value) == Double.doubleToLongBits(other.value);
 	}
 
+
+	/**
+	 * The value of the status
+	 * @return the value of the status
+	 */
+	public String toString(){
+		return String.format("[value:%1$,.2f]",this.value);
+	}
+
 }

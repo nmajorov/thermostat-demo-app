@@ -1,4 +1,4 @@
-package com.opensource;
+package com.opensource.state;
 
 import java.io.Serializable;
 
@@ -17,15 +17,10 @@ public interface State<T> extends Serializable {
 	 */
 	public void fromString(String value);
 	
-	/**
-	 * The value of the status
-	 * @return the value of the status
-	 */
-	public String toString();
 	
-	public static String toJson(State<?> state) {
-		return state.toString();
-	}
+	//public static String toJson(State<?> state) {
+//		return state.toString();
+//	}
 
 
 }

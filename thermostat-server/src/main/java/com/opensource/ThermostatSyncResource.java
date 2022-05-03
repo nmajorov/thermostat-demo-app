@@ -25,7 +25,7 @@ public class ThermostatSyncResource {
      */
     public Response data(@PathParam("id") UUID id, TemperatureState state) {
         log.info(String.format("Get state: %s for device: %s", state,id));
-        return Response.ok().build();
+        return Response.ok("{}", MediaType.APPLICATION_JSON).build();
     }
 
 }
