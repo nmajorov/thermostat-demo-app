@@ -8,18 +8,24 @@
           </div>
         </div>
         <div class="card-content">
-          <vc-donut :sections="sections">Basic donut</vc-donut>
+          <vc-donut :sections="sections">{{ temp }}</vc-donut>
         </div>
         <div class="card-action">
           <div class="row">
             <div class="col s3"></div>
             <div class="col s3">
-              <a class="btn halfway-fab waves-effect waves-light red">
+              <a
+                class="btn halfway-fab waves-effect waves-light red"
+                @click="plusTemperature()"
+              >
                 <i class="material-icons">add</i></a
               >
             </div>
             <div class="col s1">
-              <a class="btn halfway-fab waves-effect waves-light red">
+              <a
+                @click="minusTemperature()"
+                class="btn halfway-fab waves-effect waves-light red"
+              >
                 <i class="material-icons">remove</i></a
               >
             </div>
@@ -36,8 +42,19 @@ export default defineComponent({
   name: "ThermostatComponent",
   data() {
     return {
-      sections: [{ value: 100 }],
+      sections: [{ value: 100, color: "grey" }],
+      temp: 0.0,
     };
+  },
+  methods: {
+    plusTemperature() {
+      this.temp += 1;
+    },
+    minusTemperature() {
+      if (this.temp > 0) {
+        this.temp -= 1;
+      }
+    },
   },
 });
 </script>
