@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { HTTP_VERBS } from "@/types/Common";
+import { json } from "stream/consumers";
 
 export default function newRequest(
   method: HTTP_VERBS,
@@ -8,20 +9,15 @@ export default function newRequest(
   queryParams: any,
   data: any
 ): Promise<any> {
-  let init = {};
-  if (HTTP_VERBS.GET || HTTP_VERBS.PATCH) {
-    init = {
-      method: method,
-      headers: headers,
-    };
-  } else {
-    init = {
-      method: method,
-      headers: headers,
-      body: data,
-    };
+  const init = {
+    method: method,
+    headers: headers,
+    body: data,
+  };
+  if (method === HTTP_VERBS.GET || method === HTTP_VERBS.PATCH) {
+    delete init.body;
   }
-
+  console.log("init:" + JSON.stringify(init));
   const responseData = fetch(
     url,
     init

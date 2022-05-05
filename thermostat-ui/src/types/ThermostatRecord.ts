@@ -9,14 +9,13 @@ import TemperatureState from "./TemperatureState";
 class ThermostatRecord {
   private deviceId: string;
 
-  private temperature: TemperatureState;
+  private value: TemperatureState;
 
   private timeStamp: number;
 
   constructor() {
-    this.deviceId = "1xxx2022xxx";
-    this.temperature = new TemperatureState();
-    this.temperature.setValue(21.0);
+    this.deviceId = "unknown";
+    this.value = new TemperatureState();
     this.timeStamp = Date.now();
   }
 
@@ -28,12 +27,12 @@ class ThermostatRecord {
     this.deviceId = deviceId;
   }
 
-  getTemperature(): TemperatureState {
-    return this.temperature;
+  getValue(): TemperatureState {
+    return this.value;
   }
 
-  setTemperature(temperature: TemperatureState): void {
-    this.temperature = temperature;
+  setValue(temperature: TemperatureState): void {
+    this.value = temperature;
   }
 
   getTimeStamp(): number {
