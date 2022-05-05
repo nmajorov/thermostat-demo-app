@@ -13,15 +13,10 @@ class ThermostatRecord {
 
   private timeStamp: number;
 
-  constructor(
-    ...args: [
-      deviceId: string,
-      temperature: TemperatureState,
-      timeStamp: number
-    ]
-  ) {
-    this.deviceId = "";
+  constructor() {
+    this.deviceId = "1xxx2022xxx";
     this.temperature = new TemperatureState();
+    this.temperature.setValue(21.0);
     this.timeStamp = Date.now();
   }
 
