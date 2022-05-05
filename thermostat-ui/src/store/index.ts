@@ -29,9 +29,7 @@ export default new Vuex.Store<APPRootState>({
     },
   },
   actions: {
-    changeDeviceId({ commit }, deviceId) {
-      this.dispatch("updateDeviceId", deviceId);
-    },
+  
     /**
     sendState({ commit }): any {
         newRequest(HTTP_VERBS.GET, `${BASEURL}/rest/session/token`,
