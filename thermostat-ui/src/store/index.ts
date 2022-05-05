@@ -1,6 +1,6 @@
 import TemperatureState from "@/types/TemperatureState";
 import Vuex from "vuex";
-import newRequest  from "@/api";
+import newRequest from "@/api";
 
 /**
  * central state of web app
@@ -19,8 +19,19 @@ export default new Vuex.Store<APPRootState>({
     currentTemperatureState: new TemperatureState(),
     deviceId: "000",
   },
-  mutations: {},
+  mutations: {
+    updateDeviceId(state, payload: string) {
+      console.log("update device id to: " + payload);
+      state.deviceId = payload;
+    },
+    updateBackendUrl(state, backendUrl) {
+      state.backendUrl = backendUrl;
+    },
+  },
   actions: {
+    changeDeviceId({ commit }, deviceId) {
+      this.dispatch("updateDeviceId", deviceId);
+    },
     /**
     sendState({ commit }): any {
         newRequest(HTTP_VERBS.GET, `${BASEURL}/rest/session/token`,
@@ -44,6 +55,5 @@ export default new Vuex.Store<APPRootState>({
 
     }
      */
-
   }, //end of actions
 }); //end of store
