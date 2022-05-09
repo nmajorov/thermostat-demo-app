@@ -43,12 +43,14 @@ export default defineComponent({
   data() {
     return {
       sections: [{ value: 100, color: "grey" }],
-      temp: 0.0,
+      temp: this.$store.state.currentTemperatureState.getValue(),
     };
   },
   methods: {
     plusTemperature() {
       this.temp += 1;
+      this.$store.commit("updateTemperature", this.temp);
+      this.$store.dispatch("sendRecord");
     },
     minusTemperature() {
       if (this.temp > 0) {
