@@ -1,4 +1,6 @@
-# code-with-quarkus Project
+# Thermostat server - backend
+
+Demo backend application.
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
