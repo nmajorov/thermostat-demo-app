@@ -49,6 +49,15 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Pnative -Dquarkus.native.container-build=true
 ```
 
+Build and push docker with one command:
+
+```shell script
+
+./mvnw clean  package -Pnative -Dquarkus.native.container-build=true -Dquarkus.container-image.push=true 
+
+```
+
+
 You can then execute your native executable with: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
@@ -58,11 +67,3 @@ If you want to learn more about building native executables, please consult http
 - RESTEasy JSON-B ([guide](https://quarkus.io/guides/rest-json)): JSON-B serialization support for RESTEasy
 - Apache Avro ([guide](https://quarkus.io/guides/kafka)): Provide support for the Avro data serialization system
 - Apicurio Registry - Avro ([guide](https://quarkus.io/guides/kafka-schema-registry-avro)): Provide support for the Apicurio Registry Avro library
-
-## Provided Code
-
-### RESTEasy JAX-RS
-
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
