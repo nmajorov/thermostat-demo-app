@@ -7,9 +7,13 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
+    - port: {{ .Values.service.http_port }}
       targetPort: http
       protocol: TCP
       name: http
+    - name: 8443-tcp
+      protocol: TCP
+      port: {{ .Values.service.https_port }}
+      targetPort: {{ .Values.service.https_port }}
   selector:
     {{- include "thermostat-chart.selectorLabels" . | nindent 4 }}
