@@ -4,13 +4,13 @@
 
 replicaCount: 1
 
-image-web:
+imageweb:
   repository: docker.io/nmajorov/thermostat-ui
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-image-server:
+imageserver:
   repository: docker.io/nmajorov/thermostat-server
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
