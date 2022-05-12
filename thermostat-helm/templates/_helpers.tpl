@@ -64,10 +64,9 @@ Create the name of the service account to use
 {{/*
 Create the namespace definition for role
 */}}
-{- define "thermostat-chart.namespace" -}}
+{{- define "thermostat-chart.namespace" -}}
   {{- if .Values.targeNamespace }}
-      {{ default .Release.Namespace }}
-      {{- println " target name space %s" .Values.targeNamespace }}
-   {{- end }}
-
+  {{ default .Release.Namespace }}
+  {{- println " target name space %s" .Values.targeNamespace }}
+  {{- end }}
 {{- end }}
