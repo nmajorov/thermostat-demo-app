@@ -18,7 +18,7 @@ Get and change argocd admin password:
 
 Allow argocd manage namespace:
 
-        oc label namespace spring-petclinic argocd.argoproj.io/managed-by=openshift-gitops
+        oc label namespace <your namespace> argocd.argoproj.io/managed-by=openshift-gitops
 
 
 
