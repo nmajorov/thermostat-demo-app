@@ -1,8 +1,8 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: <role-name>
-  namespace: <target-ns>
+  name: ThermostatRole
+  namespace: {{ include "thermostat-chart.namespace" . }}
 rules:
 - apiGroups:
   - "*"
