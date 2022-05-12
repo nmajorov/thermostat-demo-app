@@ -64,7 +64,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{- printf "%s-backend" include "thermostat-chart.fullname" .  | trunc 63 | trimSuffix "-"  }}"
+  name: "{{- printf "%s-backend" . include "thermostat-chart.fullname"  | trunc 63 | trimSuffix "-"  }}"
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
 spec:
