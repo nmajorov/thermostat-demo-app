@@ -1,0 +1,15 @@
+{{- if .Values.serviceAccount.create -}}
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+  name: ThermostatRoleBinding
+  namespace: {{ include "thermostat-chart.namespace" . }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ThermostatRole
+subjects:
+- kind: ServiceAccount
+  name: {{ include "thermostat-chart.serviceAccountName" . }}
+  namespace: {{ include "thermostat-chart.namespace" . }}
+{{- end }}
