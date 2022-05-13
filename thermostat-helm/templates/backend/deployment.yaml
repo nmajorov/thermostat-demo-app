@@ -8,14 +8,6 @@ metadata:
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-kind: Deployment
-metadata:
-  name: {{ include "thermostat-chart.fullname" . }}
-  labels:
-    {{- include "thermostat-chart.labels" . | nindent 4 }}
-spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
