@@ -21,6 +21,7 @@ spec:
       {{- end }}
       labels:
         {{- include "thermostat-chart.selectorLabels" . | nindent 8 }}
+        thermostat: web
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
