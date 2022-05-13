@@ -4,6 +4,7 @@ metadata:
   name: "backend"
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
+    thermostat: backend
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}

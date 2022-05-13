@@ -4,6 +4,7 @@ metadata:
   name: {{ include "thermostat-chart.fullname" . }}
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
+    thermostat: web
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
