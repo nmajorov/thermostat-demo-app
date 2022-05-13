@@ -4,7 +4,6 @@ metadata:
   name: web
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
-    thermostat: web
 spec:
   type: {{ .Values.service.type }}
   ports:
