@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{- printf "%s-backend" . include "thermostat-chart.fullname" .  | trunc 63 | trimSuffix "-"  }}"
+  name: "backend"
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
 spec:
