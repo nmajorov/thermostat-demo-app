@@ -12,6 +12,7 @@ spec:
   selector:
     matchLabels:
       {{- include "thermostat-chart.selectorLabels" . | nindent 6 }}
+      thermostat: web
   template:
     metadata:
       {{- with .Values.podAnnotations }}

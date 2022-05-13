@@ -4,6 +4,7 @@ metadata:
   name: backend
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
+    thermostat: backend
 spec:
   type: {{ .Values.service.type }}
   ports:
