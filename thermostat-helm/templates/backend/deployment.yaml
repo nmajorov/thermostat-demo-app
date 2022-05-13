@@ -7,7 +7,7 @@ metadata:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}apiVersion: apps/v1
+  replicas: {{ .Values.replicaCount }}
 kind: Deployment
 metadata:
   name: {{ include "thermostat-chart.fullname" . }}
