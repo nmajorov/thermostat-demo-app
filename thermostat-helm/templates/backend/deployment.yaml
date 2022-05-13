@@ -1,4 +1,13 @@
+---
 apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{- printf "%s-backend" . include "thermostat-chart.fullname" .  | trunc 63 | trimSuffix "-"  }}"
+  labels:
+    {{- include "thermostat-chart.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "thermostat-chart.fullname" . }}
@@ -51,6 +60,7 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+        {{- toYaml . | nindent 8 }}
       {{- with .Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
@@ -60,16 +70,6 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
 
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: "{{- printf "%s-backend" . include "thermostat-chart.fullname"  | trunc 63 | trimSuffix "-"  }}"
-  labels:
-    {{- include "thermostat-chart.labels" . | nindent 4 }}
-spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
