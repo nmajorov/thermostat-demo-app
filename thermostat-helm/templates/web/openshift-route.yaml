@@ -8,6 +8,7 @@ metadata:
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
     thermostat: web
+  name: thermostat-web
   namespace: {{ include "thermostat-chart.namespace" . }}
 spec:
   port:

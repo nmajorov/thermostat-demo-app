@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "thermostat-chart.fullname" . }}
+  name: "web"
   labels:
     {{- include "thermostat-chart.labels" . | nindent 4 }}
     thermostat: web
