@@ -9,7 +9,7 @@ class TemperatureState implements State<number> {
   private value: number;
 
   constructor() {
-    this.value = 0.0;
+    this.value = 0;
   }
 
   fromString(value: string): void {

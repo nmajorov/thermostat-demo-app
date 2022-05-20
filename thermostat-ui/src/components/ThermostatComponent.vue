@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="card-content">
-          <vc-donut :sections="sections">{{ temp }}</vc-donut>
+          <vc-donut :sections="sections">{{ currentTemp }}</vc-donut>
         </div>
         <div class="card-action">
           <div class="row">
@@ -38,14 +38,32 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useToast } from "vue-toastification";
+
 export default defineComponent({
   name: "ThermostatComponent",
+  setup() {
+    // Get toast interface
+    const toast = useToast();
+
+    // These options will override the options defined in the "app.use" plugin registration for this specific toast
+
+    // Make it available inside methods
+    return { toast };
+  },
   data() {
     return {
       sections: [{ value: 100, color: "grey" }],
       temp: this.$store.state.currentTemperatureState.getValue(),
-    };
+     };
   },
+  computed: {
+    currentTemp() {
+      console.log("computed called " + JSON.stringify(this.$store.state));
+      return this.$store.state.currentTemperatureState.getValue();
+    },
+  },
+
   methods: {
     plusTemperature() {
       this.temp += 1;
@@ -55,6 +73,8 @@ export default defineComponent({
     minusTemperature() {
       if (this.temp > 0) {
         this.temp -= 1;
+        this.$store.commit("updateTemperature", this.temp);
+        this.$store.dispatch("sendRecord");
       }
     },
   },
