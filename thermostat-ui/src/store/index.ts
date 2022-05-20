@@ -3,9 +3,9 @@ import { createStore } from "vuex";
 import newRequest from "@/api";
 import { HTTP_VERBS } from "@/types/Common";
 import ThermostatRecord from "@/types/ThermostatRecord";
-import { useToast } from 'vue-toastification'
+import { useToast } from "vue-toastification";
 
-const toast = useToast()
+const toast = useToast();
 
 /**
  * central state of web app
@@ -15,7 +15,7 @@ interface APPRootState {
   backendUrl: string;
   deviceId: string;
   currentTemperatureState: TemperatureState;
- // error: string;
+  // error: string;
 }
 
 const store = createStore<APPRootState>({
@@ -24,7 +24,7 @@ const store = createStore<APPRootState>({
     backendUrl: "http://localhost:8080/ts",
     currentTemperatureState: new TemperatureState(),
     deviceId: "7a0a4bf3-0ba9-4767-94b5-6eb2df44be8d",
-   // error: "",
+    // error: "",
   },
   mutations: {
     updateDeviceId(state, payload: string) {
@@ -38,7 +38,7 @@ const store = createStore<APPRootState>({
       state.currentTemperatureState.setValue(temp);
     },
     updateError(state, err: string) {
-      if (err != ""){
+      if (err != "") {
         toast.error(err);
       }
     },

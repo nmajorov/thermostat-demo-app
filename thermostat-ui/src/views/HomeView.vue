@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <HelloWorld msg="Demo App"/>
+    <HelloWorld msg="thermostat demo app"/>
     <thermostat-component/>
   </div>
 </template>

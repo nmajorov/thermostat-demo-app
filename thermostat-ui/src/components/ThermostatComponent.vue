@@ -38,19 +38,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useToast } from "vue-toastification";
 
 export default defineComponent({
   name: "ThermostatComponent",
-  setup() {
-    // Get toast interface
-    const toast = useToast();
-
-    // These options will override the options defined in the "app.use" plugin registration for this specific toast
-
-    // Make it available inside methods
-    return { toast };
-  },
   data() {
     return {
       sections: [{ value: 100, color: "grey" }],
