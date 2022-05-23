@@ -1,5 +1,35 @@
 # Helm Chart for application
 
+Install chart from directory with command:
+
+        helm install  niko-thermostat  ./thermostat-helm  --set thermostat-chart.namespace=$(oc project  -q)
+
+
+
+
+## ArgoCD deployment
+
+definition:
+
+
+
+        apiVersion: argoproj.io/v1alpha1
+        kind: Application
+        metadata:
+          name: thermostat
+        spec:
+          destination:
+            name: ''
+            namespace: niko-helm-test
+            server: 'https://kubernetes.default.svc'
+          source:
+            path: thermostat-helm
+            repoURL: 'https://github.com/nmajorov/thermostat-demo-app'
+            targetRevision: main
+          project: default
+
+
+### ArgoCD operator notice
 
 Fixing role for openshift users
 
@@ -19,23 +49,3 @@ Get and change argocd admin password:
 Allow argocd manage namespace:
 
         oc label namespace <your namespace> argocd.argoproj.io/managed-by=openshift-gitops
-
-
-
-## ArgoCD definition
-
-
-        apiVersion: argoproj.io/v1alpha1
-        kind: Application
-        metadata:
-          name: thermostat
-        spec:
-          destination:
-            name: ''
-            namespace: niko-helm-test
-            server: 'https://kubernetes.default.svc'
-          source:
-            path: thermostat-helm
-            repoURL: 'https://github.com/nmajorov/thermostat-demo-app'
-            targetRevision: feature/helm
-          project: default
